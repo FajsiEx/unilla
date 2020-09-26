@@ -12,8 +12,6 @@
 .setup-form {
   width: 100%;
   max-width: 356px;
-  display: flex;
-  flex-direction: column;
 }
 
 .start-button {
@@ -29,5 +27,12 @@
   transition: filter var(--transition);
   &:hover {
     filter: var(--filter-hover);
+  }
+}
+
+.footer {
+  margin-top: 16px;
+  i {
+    font-size: 28px;
   }
 }

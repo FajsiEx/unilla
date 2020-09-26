@@ -6,6 +6,8 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./home-page.component.scss']
 })
 export class HomePageComponent implements OnInit {
+  problemCount = 10;
+  secondsPerProblem = 30;
 
   constructor() { }
 

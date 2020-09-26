@@ -3,8 +3,16 @@
     <p class="subtext">Otestuj sa pri premienaní čísiel na tvar x * 10<sup>y</sup></p>
 
     <div class="setup-form">
-        input
+        <app-select icon="fas fa-list-ol" label="Počet príkladov" [options]="[5, 10, 15]" [(value)]="problemCount"></app-select>
+        <app-select icon="fas fa-stopwatch" label="Sekundy na príklad" [options]="[10, 30, '∞']" [(value)]="secondsPerProblem"></app-select>
+
         <div class="start-button">Začať</div>
+
     </div>
 
+    <div class="footer">
+        <div class="link">
+            <i class="fab fa-github"></i>
+        </div>
+    </div>
 </div>
