@@ -1,0 +1,40 @@
+.select {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 8px;
+
+  .label {
+    i {
+      margin-right: 8px;
+    }
+  }
+
+  .options {
+    display: flex;
+    border-radius: 8px;
+    overflow: hidden; // To cut off corners
+
+    .option {
+      padding: 8px;
+      min-width: 28px;
+      background: var(--color-bg-l1);
+
+      &:not(:last-child) {
+        border-right: 1px solid #888;
+      }
+
+      cursor: pointer;
+      transition: filter var(--transition);
+
+      &:hover {
+        filter: var(--filter-hover);
+      }
+
+      &.active {
+        background: var(--color-accent);
+        color: #000000;
+      }
+    }
+  }
+}

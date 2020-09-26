@@ -8,12 +8,14 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 import {MatSelectModule} from '@angular/material/select';
 import { SelectComponent } from './components/select/select.component';
+import { ProblemPageComponent } from './pages/problem-page/problem-page.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     HomePageComponent,
-    SelectComponent
+    SelectComponent,
+    ProblemPageComponent
   ],
   imports: [
     BrowserModule,
