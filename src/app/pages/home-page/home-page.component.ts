@@ -7,9 +7,25 @@ import {Component, OnInit} from '@angular/core';
 })
 export class HomePageComponent implements OnInit {
     options = {
-        problemCount: 10,
-        secondsPerProblem: 30
+        difficulty: 1,
     };
+
+    difficultyOptions = [
+        {
+            icon: 'far fa-smile',
+            value: 1
+        }, {
+            icon: 'far fa-meh',
+            value: 2
+        }, {
+            icon: 'far fa-frown',
+            value: 3
+        },
+        // { // The hidden diff for now :)
+        //     icon: 'far fa-flushed',
+        //     value: 4
+        // }
+    ];
 
     constructor() {
     }
@@ -23,8 +39,7 @@ export class HomePageComponent implements OnInit {
             const loadedOptions = JSON.parse(localStorage.u_options);
 
             if (
-                !parseInt(loadedOptions.problemCount, 10) ||
-                !loadedOptions.secondsPerProblem
+                !parseInt(loadedOptions.difficulty, 10)
             ) {
                 throw('Malformed options');
             }

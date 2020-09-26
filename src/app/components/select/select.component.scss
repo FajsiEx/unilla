@@ -20,6 +20,10 @@
       min-width: 28px;
       background: var(--color-bg-l1);
 
+      i {
+        font-size: 18px;
+      }
+
       &:not(:last-child) {
         border-right: 1px solid #888;
       }

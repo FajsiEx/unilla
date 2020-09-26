@@ -9,7 +9,10 @@ export class SelectComponent implements OnInit {
 
     @Input() icon: string;
     @Input() label: string;
-    @Input() options: Array<any>;
+    @Input() options: Array<{
+        icon: string,
+        value: any
+    }>;
 
     @Input() value: any;
     @Output() valueChange = new EventEmitter<any>();

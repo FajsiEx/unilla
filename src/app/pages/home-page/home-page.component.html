@@ -1,12 +1,10 @@
 <div class="page">
     <h1 class="logo">Unilla</h1>
-    <p class="subtext">Otestuj sa pri premienaní čísiel na tvar x * 10<sup>y</sup></p>
+    <p class="subtext">Otestuj sa pri premienaní čísiel na tvar x · 10<sup>y</sup></p>
 
     <div class="setup-form">
-        <app-select icon="fas fa-list-ol" label="Počet príkladov" [options]="[5, 10, 15]"
-                    [(value)]="options.problemCount" (valueChange)="onOptionChange()"></app-select>
-        <app-select icon="fas fa-stopwatch" label="Sekundy na príklad" [options]="[10, 30, '∞']"
-                    [(value)]="options.secondsPerProblem" (valueChange)="onOptionChange()"></app-select>
+        <app-select icon="fas fa-chart-line" label="Obtiažnosť" [options]="difficultyOptions"
+                    [(value)]="options.difficulty" (valueChange)="onOptionChange()"></app-select>
 
         <div class="start-button">Začať</div>
 

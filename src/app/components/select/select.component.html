@@ -1,7 +1,9 @@
 <div class="select">
     <div class="label"><i [attr.class]="icon"></i> {{label}}</div>
     <div class="options">
-        <div class="option" *ngFor="let option of options" [class.active]="value === option"
-             (click)="changeValue(option)">{{option}}</div>
+        <div class="option" *ngFor="let option of options" [class.active]="value === option.value"
+             (click)="changeValue(option.value)">
+            <i [attr.class]="option.icon"></i>
+        </div>
     </div>
 </div>
