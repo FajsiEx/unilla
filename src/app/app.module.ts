@@ -9,6 +9,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import {MatSelectModule} from '@angular/material/select';
 import { SelectComponent } from './components/select/select.component';
 import { ProblemPageComponent } from './pages/problem-page/problem-page.component';
+import {FormsModule} from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -17,12 +18,13 @@ import { ProblemPageComponent } from './pages/problem-page/problem-page.componen
     SelectComponent,
     ProblemPageComponent
   ],
-  imports: [
-    BrowserModule,
-    AppRoutingModule,
-    BrowserAnimationsModule,
-    MatSelectModule
-  ],
+    imports: [
+        BrowserModule,
+        AppRoutingModule,
+        BrowserAnimationsModule,
+        MatSelectModule,
+        FormsModule
+    ],
   providers: [],
   bootstrap: [AppComponent]
 })

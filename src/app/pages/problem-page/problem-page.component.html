@@ -2,5 +2,10 @@
     <p>Uprav na tvar x · 10<sup>y</sup></p>
     <h1 class="current-problem">{{currentProblem}}</h1>
 
+    <div class="answer-form">
+        <input type="number" [(ngModel)]="answerBase"> · 10<sup><input type="number" [(ngModel)]="answerPow"></sup>
+    </div>
+
+    <button (click)="validate()">[DEBUG] validate</button>
     <button (click)="generateProblem()">[DEBUG] regen problem</button>
 </div>
