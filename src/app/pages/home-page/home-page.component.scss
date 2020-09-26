@@ -1,0 +1,33 @@
+.page {
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.logo {
+  font-size: 72px;
+}
+
+.setup-form {
+  width: 100%;
+  max-width: 356px;
+  display: flex;
+  flex-direction: column;
+}
+
+.start-button {
+  width: calc(100% - 2 * 48px); // To account for the padding
+
+  background: var(--color-accent);
+  color: black;
+  padding: 16px 48px;
+  border-radius: 6px;
+
+  cursor: pointer;
+
+  transition: filter var(--transition);
+  &:hover {
+    filter: var(--filter-hover);
+  }
+}
