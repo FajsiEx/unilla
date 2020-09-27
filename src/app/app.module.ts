@@ -10,13 +10,15 @@ import {MatSelectModule} from '@angular/material/select';
 import { SelectComponent } from './components/select/select.component';
 import { ProblemPageComponent } from './pages/problem-page/problem-page.component';
 import {FormsModule} from '@angular/forms';
+import { ResultsPageComponent } from './pages/results-page/results-page.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     HomePageComponent,
     SelectComponent,
-    ProblemPageComponent
+    ProblemPageComponent,
+    ResultsPageComponent
   ],
     imports: [
         BrowserModule,

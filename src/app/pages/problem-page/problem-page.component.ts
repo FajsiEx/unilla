@@ -1,4 +1,5 @@
 import {Component, ElementRef, OnInit, ViewChild} from '@angular/core';
+import {Router} from '@angular/router';
 
 @Component({
     selector: 'app-problem-page',
@@ -27,7 +28,9 @@ export class ProblemPageComponent implements OnInit {
     lives = 3;
     score = 0;
 
-    constructor() {
+    constructor(
+        private router: Router
+    ) {
     }
 
     ngOnInit(): void {
@@ -36,13 +39,23 @@ export class ProblemPageComponent implements OnInit {
 
     onValidateClick(): void {
         if (this.showingCorrectAnswer) {
+            if (this.lives <= 0) {
+                sessionStorage.u_last_results = JSON.stringify({
+                    score: this.score
+                });
+                this.router.navigateByUrl('/results');
+                return;
+            }
             this.generateProblem();
             return;
         }
 
         const isValid = this.validate();
         if (isValid) {
+            this.score += Math.abs(this.answerPow) + this.baseNum.toString().length;
+
             this.generateProblem();
+
             this.playCorrectAnim = true;
             setTimeout(() => {
                 this.playCorrectAnim = false;
@@ -51,6 +64,7 @@ export class ProblemPageComponent implements OnInit {
             this.showingCorrectAnswer = true;
             this.answerBase = this.baseNum;
             this.answerPow = this.correctAnsPow;
+            this.lives--;
         }
     }
 

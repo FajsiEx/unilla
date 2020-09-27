@@ -1,0 +1,30 @@
+.wrap {
+  width: 100%;
+  max-width: 356px;
+}
+
+.go-header {
+  font-size: 48px;
+}
+
+.score {
+  font-size: 32px;
+}
+
+.start-button {
+  width: calc(100% - 2 * 48px); // To account for the padding
+  margin-top: 8px;
+
+  font-size: initial;
+  background: var(--color-accent);
+  color: black;
+  padding: 16px 48px;
+  border-radius: 6px;
+
+  cursor: pointer;
+  transition: filter var(--transition), background var(--transition);
+
+  &:hover {
+    filter: var(--filter-hover);
+  }
+}
