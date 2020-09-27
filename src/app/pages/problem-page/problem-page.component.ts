@@ -119,7 +119,7 @@ export class ProblemPageComponent implements OnInit, OnDestroy {
             return false;
         }
 
-        console.log('Validate success!');
+        console.log('[VALID] Answer valid');
         return true;
     }
 
@@ -186,7 +186,8 @@ export class ProblemPageComponent implements OnInit, OnDestroy {
             }
         }
 
-        console.log(`DIFF:${this.difficulty} // Solution: ${this.baseNum} * 10^${this.correctAnsPow}`);
+        // When debugging ;)
+        // console.log(`DIFF:${this.difficulty} // Solution: ${this.baseNum} * 10^${this.correctAnsPow}`);
 
         this.difficulty += 0.1;
 
