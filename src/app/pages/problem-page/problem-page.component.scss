@@ -16,6 +16,10 @@
   justify-content: space-between;
   font-size: 32px;
 
+  & > div {
+    width: 100%;
+  }
+
   .lives {
     i {
       margin-right: 8px;

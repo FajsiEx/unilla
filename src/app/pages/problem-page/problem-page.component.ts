@@ -1,4 +1,4 @@
-import {Component, ElementRef, OnInit, ViewChild} from '@angular/core';
+import {Component, ElementRef, OnDestroy, OnInit, ViewChild} from '@angular/core';
 import {Router} from '@angular/router';
 
 @Component({
@@ -6,7 +6,7 @@ import {Router} from '@angular/router';
     templateUrl: './problem-page.component.html',
     styleUrls: ['./problem-page.component.scss']
 })
-export class ProblemPageComponent implements OnInit {
+export class ProblemPageComponent implements OnInit, OnDestroy {
     @ViewChild('focus') focusElement: ElementRef;
 
     Arr = Array;
@@ -32,6 +32,9 @@ export class ProblemPageComponent implements OnInit {
     lives = 3;
     score = 0;
 
+    secondsDecrementInterval;
+    seconds = 30;
+
     constructor(
         private router: Router
     ) {
@@ -41,8 +44,15 @@ export class ProblemPageComponent implements OnInit {
         this.loadOptions();
         this.difficulty = this.options.difficulty;
 
+        this.secondsDecrementInterval = setInterval(() => {
+            //this.seconds--;
+        }, 1000);
 
         this.generateProblem();
+    }
+
+    ngOnDestroy(): void {
+        clearInterval(this.secondsDecrementInterval);
     }
 
     loadOptions(): void {
