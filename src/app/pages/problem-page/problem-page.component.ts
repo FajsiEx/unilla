@@ -1,4 +1,4 @@
-import {Component, OnInit} from '@angular/core';
+import {Component, ElementRef, OnInit, ViewChild} from '@angular/core';
 
 @Component({
     selector: 'app-problem-page',
@@ -6,6 +6,7 @@ import {Component, OnInit} from '@angular/core';
     styleUrls: ['./problem-page.component.scss']
 })
 export class ProblemPageComponent implements OnInit {
+    @ViewChild('focus') focusElement: ElementRef;
 
     difficulty = 1;
 
@@ -130,6 +131,11 @@ export class ProblemPageComponent implements OnInit {
         this.difficulty += 0.1;
 
         this.currentProblem = shiftedNum;
+        this.showingCorrectAnswer = false;
+
+        setTimeout(() => {
+            this.focusElement.nativeElement.focus();
+        }, 1);
     }
 
 }

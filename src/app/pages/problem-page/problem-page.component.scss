@@ -4,6 +4,11 @@
   line-break: anywhere;
 }
 
+.invalid-note {
+  color: var(--color-invalid);
+  margin: 8px 0;
+}
+
 .answer-form {
   font-size: 32px;
 
@@ -51,7 +56,12 @@
 
   cursor: pointer;
 
-  transition: filter var(--transition);
+  transition: filter var(--transition), background var(--transition);
+
+  &.invalid {
+    background: var(--color-invalid);
+  }
+
   &:hover {
     filter: var(--filter-hover);
   }

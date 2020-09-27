@@ -4,6 +4,8 @@
 
     <div class="equal-sign">=</div>
 
+    <div class="invalid-note" *ngIf="showingCorrectAnswer">Nesprávne! Takto to malo vyzerať:</div>
+
     <div class="answer-form">
         <input type="number"
                [(ngModel)]="answerBase"
@@ -15,6 +17,8 @@
                    placeholder="n" size="1">
         </sup>
 
-        <div class="start-button" (click)="onValidateClick()">{{(showingCorrectAnswer) ? 'Pokračovať' : 'Skontrolovať'}}</div>
+
+        <div class="start-button" [class.invalid]="showingCorrectAnswer"
+             (click)="onValidateClick()">{{(showingCorrectAnswer) ? 'Pokračovať' : 'Skontrolovať'}}</div>
     </div>
 </div>
