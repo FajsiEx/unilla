@@ -11,6 +11,10 @@ export class ProblemPageComponent implements OnInit {
 
     Arr = Array;
 
+    options = {
+        difficulty: 1
+    };
+
     difficulty = 1;
 
     baseNum = 0;
@@ -34,7 +38,27 @@ export class ProblemPageComponent implements OnInit {
     }
 
     ngOnInit(): void {
+        this.loadOptions();
+        this.difficulty = this.options.difficulty;
+
+
         this.generateProblem();
+    }
+
+    loadOptions(): void {
+        try {
+            const loadedOptions = JSON.parse(localStorage.u_options);
+
+            if (
+                !parseInt(loadedOptions.difficulty, 10)
+            ) {
+                throw('Malformed options');
+            }
+
+            this.options = loadedOptions;
+        } catch (e) {
+            console.warn('Failed to load options from the storage', e);
+        }
     }
 
     onValidateClick(): void {

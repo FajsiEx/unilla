@@ -10,21 +10,20 @@ export class HomePageComponent implements OnInit {
         difficulty: 1,
     };
 
+    secretDiffClickCounter = 0;
+    secretDiffUnlocked = false;
+
     difficultyOptions = [
         {
             icon: 'far fa-smile',
             value: 1
         }, {
             icon: 'far fa-meh',
-            value: 2
+            value: 3
         }, {
             icon: 'far fa-frown',
-            value: 3
-        },
-        // { // The hidden diff for now :)
-        //     icon: 'far fa-flushed',
-        //     value: 4
-        // }
+            value: 4
+        }
     ];
 
     constructor() {
@@ -52,6 +51,19 @@ export class HomePageComponent implements OnInit {
 
     onOptionChange(): void {
         localStorage.u_options = JSON.stringify(this.options);
+
+        if (this.options.difficulty === 4 && !this.secretDiffUnlocked) {
+            this.secretDiffClickCounter++;
+            if (this.secretDiffClickCounter > 5) {
+                this.secretDiffUnlocked = true;
+                this.difficultyOptions.push({
+                    icon: 'far fa-flushed',
+                    value: 7.5
+                });
+            }
+        } else {
+            this.secretDiffClickCounter = 0;
+        }
     }
 
 }
