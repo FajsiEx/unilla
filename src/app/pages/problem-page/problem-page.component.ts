@@ -12,16 +12,33 @@ export class ProblemPageComponent implements OnInit {
     baseNum = 0;
     decPointDirection = false;
     correctAnsPow = 0;
-    currentProblem = '0.000051';
+    currentProblem = '???';
 
     answerBase: number;
     answerPow: number;
+
+    showingCorrectAnswer = false;
 
     constructor() {
     }
 
     ngOnInit(): void {
         this.generateProblem();
+    }
+
+    onValidateClick(): void {
+        if (this.showingCorrectAnswer) {
+            this.generateProblem();
+            return;
+        }
+
+        const isValid = this.validate();
+        if (isValid) {
+        } else {
+            this.showingCorrectAnswer = true;
+            this.answerBase = this.baseNum;
+            this.answerPow = this.correctAnsPow;
+        }
     }
 
     validate(): boolean {
@@ -46,6 +63,9 @@ export class ProblemPageComponent implements OnInit {
     }
 
     generateProblem(): void {
+        this.answerBase = undefined;
+        this.answerPow = undefined;
+
         // Difficulty calculation
         if (this.difficulty > 7.5) {
             // Anything higher than this is actually insane

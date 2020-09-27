@@ -41,6 +41,7 @@
 
 .start-button {
   width: calc(100% - 2 * 48px); // To account for the padding
+  margin-top: 8px;
 
   font-size: initial;
   background: var(--color-accent);

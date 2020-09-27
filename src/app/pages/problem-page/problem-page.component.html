@@ -8,14 +8,14 @@
         <input type="number"
                [(ngModel)]="answerBase"
                class="answer-base"
-               placeholder="x" size="4" formnovalidate> · 10
+               placeholder="x" size="4" #focus> · 10
         <sup>
             <input type="number" [(ngModel)]="answerPow"
                    class="answer-pow"
                    placeholder="n" size="1">
         </sup>
 
-        <div class="start-button">Skontrolovať</div>
+        <div class="start-button" (click)="onValidateClick()">{{(showingCorrectAnswer) ? 'Pokračovať' : 'Skontrolovať'}}</div>
     </div>
 
     <button (click)="validate()">[DEBUG] validate</button>
