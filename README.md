@@ -1,5 +1,11 @@
 # Unilla
 
+Small web app for converting numbers with decimal points to the x*10^n.
+
+Base app written in 24 hours.
+
+**The usual angular stuff will follow:**
+
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 10.0.6.
 
 ## Development server
