@@ -1,3 +1,28 @@
+@keyframes correct-bg-flash {
+  0% {
+    background: var(--color-accent);
+  }
+  5% {
+    background: var(--color-correct);
+  }
+  100% {
+    background: var(--color-accent);
+  }
+}
+
+.hud {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  font-size: 32px;
+
+  .lives {
+    i {
+      margin-right: 8px;
+    }
+  }
+}
+
 .current-problem, .equal-sign {
   font-size: 32px;
 
@@ -16,7 +41,7 @@
     font-size: 32px;
     font-family: var(--font-base);
     border: none;
-    background: rgba(128,128,128,0.25);
+    background: rgba(128, 128, 128, 0.25);
     border-radius: 8px;
     color: var(--color-text);
     outline: none !important;
@@ -60,6 +85,10 @@
 
   &.invalid {
     background: var(--color-invalid);
+  }
+
+  &.correct {
+    animation: 1.5s correct-bg-flash ease;
   }
 
   &:hover {

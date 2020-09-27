@@ -8,6 +8,8 @@ import {Component, ElementRef, OnInit, ViewChild} from '@angular/core';
 export class ProblemPageComponent implements OnInit {
     @ViewChild('focus') focusElement: ElementRef;
 
+    Arr = Array;
+
     difficulty = 1;
 
     baseNum = 0;
@@ -19,6 +21,11 @@ export class ProblemPageComponent implements OnInit {
     answerPow: number;
 
     showingCorrectAnswer = false;
+
+    playCorrectAnim = false;
+
+    lives = 3;
+    score = 0;
 
     constructor() {
     }
@@ -35,6 +42,11 @@ export class ProblemPageComponent implements OnInit {
 
         const isValid = this.validate();
         if (isValid) {
+            this.generateProblem();
+            this.playCorrectAnim = true;
+            setTimeout(() => {
+                this.playCorrectAnim = false;
+            }, 1500);
         } else {
             this.showingCorrectAnswer = true;
             this.answerBase = this.baseNum;
@@ -136,6 +148,12 @@ export class ProblemPageComponent implements OnInit {
         setTimeout(() => {
             this.focusElement.nativeElement.focus();
         }, 1);
+    }
+
+    onKeyDown(event): void {
+        if (event.key === 'Enter') {
+            this.onValidateClick();
+        }
     }
 
 }

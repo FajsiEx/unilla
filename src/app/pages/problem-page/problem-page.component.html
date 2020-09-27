@@ -1,4 +1,13 @@
 <div class="page">
+    <div class="hud">
+        <div class="lives">
+            <i class="fas fa-heart" *ngFor="let i of Arr(lives).fill(1)"></i>
+        </div>
+        <div class="score">
+            {{score}}
+        </div>
+    </div>
+
     <p>Uprav na tvar x · 10<sup>n</sup></p>
     <div class="current-problem">{{currentProblem}}</div>
 
@@ -6,7 +15,7 @@
 
     <div class="invalid-note" *ngIf="showingCorrectAnswer">Nesprávne! Takto to malo vyzerať:</div>
 
-    <div class="answer-form">
+    <div class="answer-form" (keydown)="onKeyDown($event)">
         <input type="number"
                [(ngModel)]="answerBase"
                class="answer-base"
@@ -18,7 +27,7 @@
         </sup>
 
 
-        <div class="start-button" [class.invalid]="showingCorrectAnswer"
+        <div class="start-button" [class.invalid]="showingCorrectAnswer" [class.correct]="playCorrectAnim"
              (click)="onValidateClick()">{{(showingCorrectAnswer) ? 'Pokračovať' : 'Skontrolovať'}}</div>
     </div>
 </div>
