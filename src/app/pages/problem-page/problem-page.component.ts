@@ -30,12 +30,6 @@ export class ProblemPageComponent implements OnInit {
             return false;
         }
 
-        // if (this.answerBase.toString().split('.').length !== 2) {
-        //     // Base must have a decimal point and something before and something after it
-        //     console.log('[INVALID] a.b is not the format we have here', this.answerBase.toString().split('.'));
-        //     return false;
-        // }
-
         if (this.answerBase.toString().split('.')[0].length !== 1) {
             // Only 1 decimal place is allowed before the "."
             console.log('[INVALID] Not 1 char before the dec place', this.answerBase.toString().split('.'));
