@@ -87,16 +87,12 @@ export class ProblemPageComponent implements OnInit {
         const baseNumWholePlaces = baseNumber.toString().split('.')[0];
         const baseNumDecimalPlaces = baseNumber.toString().split('.')[1];
 
-        console.log(baseNumWholePlaces, baseNumDecimalPlaces);
-
         if (decPointDirection) {
             shiftedNum = baseNumWholePlaces + baseNumDecimalPlaces + '0'.repeat(decPlacesCount - baseNumDecimalPlaces.length);
             this.correctAnsPow = decPlacesCount;
         } else {
             try {
-                console.log('Got to have D-!!!');
                 shiftedNum = '0.' + '0'.repeat(decPlacesCount - baseNumDecimalPlaces.length) + baseNumWholePlaces + baseNumDecimalPlaces;
-                console.log('Shifted num is', shiftedNum);
 
                 let i = 0;
                 let firstNumIndex = 0;
@@ -115,7 +111,7 @@ export class ProblemPageComponent implements OnInit {
             }
         }
 
-        console.log(this.difficulty, minBaseNumberLength, maxBaseNumberLength, baseNumberLength, minDPShift, maxDPShift, baseNumber, decPointDirection, decPlacesCount, shiftedNum);
+        console.log(`DIFF:${this.difficulty} // Solution: ${this.baseNum} * 10^${this.correctAnsPow}`);
 
         this.difficulty += 0.1;
 

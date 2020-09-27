@@ -1,0 +1,57 @@
+.current-problem, .equal-sign {
+  font-size: 32px;
+
+  line-break: anywhere;
+}
+
+.answer-form {
+  font-size: 32px;
+
+  input {
+    font-size: 32px;
+    font-family: var(--font-base);
+    border: none;
+    background: rgba(128,128,128,0.25);
+    border-radius: 8px;
+    color: var(--color-text);
+    outline: none !important;
+    padding: 4px;
+
+    &:invalid {
+      box-shadow: none;
+    }
+
+    &.answer-base {
+      text-align: right;
+    }
+  }
+
+  // To hide arrows and stuff
+  input::-webkit-outer-spin-button,
+  input::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+  }
+
+  input[type=number] {
+    -moz-appearance: textfield;
+  }
+}
+
+
+.start-button {
+  width: calc(100% - 2 * 48px); // To account for the padding
+
+  font-size: initial;
+  background: var(--color-accent);
+  color: black;
+  padding: 16px 48px;
+  border-radius: 6px;
+
+  cursor: pointer;
+
+  transition: filter var(--transition);
+  &:hover {
+    filter: var(--filter-hover);
+  }
+}
