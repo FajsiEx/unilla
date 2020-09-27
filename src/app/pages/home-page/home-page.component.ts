@@ -8,6 +8,7 @@ import {Component, OnInit} from '@angular/core';
 export class HomePageComponent implements OnInit {
     options = {
         difficulty: 1,
+        theme: 'dark'
     };
 
     secretDiffClickCounter = 0;
@@ -23,6 +24,16 @@ export class HomePageComponent implements OnInit {
         }, {
             icon: 'far fa-frown',
             value: 4
+        }
+    ];
+
+    themeOptions = [
+        {
+            icon: 'far fa-sun',
+            value: 'light'
+        }, {
+            icon: 'far fa-moon',
+            value: 'dark'
         }
     ];
 
@@ -47,10 +58,13 @@ export class HomePageComponent implements OnInit {
         } catch (e) {
             console.warn('Failed to load options from the storage', e);
         }
+        this.onOptionChange();
     }
 
     onOptionChange(): void {
         localStorage.u_options = JSON.stringify(this.options);
+
+        this.changeTheme();
 
         if (this.options.difficulty === 4 && !this.secretDiffUnlocked) {
             this.secretDiffClickCounter++;
@@ -64,6 +78,33 @@ export class HomePageComponent implements OnInit {
         } else {
             this.secretDiffClickCounter = 0;
         }
+    }
+
+    changeTheme(): void {
+        const lightTheme = {
+            '--color-bg': '#fff',
+            '--color-bg-l1': '#ddd',
+            '--color-text': '#000'
+        };
+        const darkTheme = {
+            '--color-bg': '#000',
+            '--color-bg-l1': '#222',
+            '--color-text': '#fff'
+        };
+
+        let selectedTheme;
+        if (this.options.theme === 'light') {
+            selectedTheme = lightTheme;
+        } else {
+            selectedTheme = darkTheme;
+        }
+
+        Object.keys(selectedTheme).forEach(property => {
+            document.documentElement.style.setProperty(
+                property,
+                selectedTheme[property]
+            );
+        });
     }
 
 }

@@ -6,6 +6,9 @@
         <app-select icon="fas fa-chart-line" label="Obtiažnosť" [options]="difficultyOptions"
                     [(value)]="options.difficulty" (valueChange)="onOptionChange()"></app-select>
 
+        <app-select icon="fas fa-paint-roller" label="Téma" [options]="themeOptions"
+                    [(value)]="options.theme" (valueChange)="onOptionChange()"></app-select>
+
         <div class="start-button" [routerLink]="'/problems'">Začať</div>
 
     </div>
